@@ -2,7 +2,6 @@
 DEFINE('DEFAULT_18_P', dirname(__file__));
 DEFINE('__18DefaultP__', ReplaceSlashes(DEFAULT_18_P));
 \plugin\LoadActivePlugins();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

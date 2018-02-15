@@ -17,6 +17,9 @@ function Config($category,$returnvariable)
     $config = json_decode($string, true);
     return $config[$category][$returnvariable];
 }
+LoadFileTypes(__CORE__, 'class.php');
+LoadFileTypes(__CLASSES__, 'class.php');
+LoadFileTypes(__CLASSES__, 'hook.php');
 
 /*TODO
 $category aruments
