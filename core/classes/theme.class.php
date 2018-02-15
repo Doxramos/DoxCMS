@@ -22,4 +22,5 @@ class theme
             die('Theme is Corrupted');
         }
     }
+
 }

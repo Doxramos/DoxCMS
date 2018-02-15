@@ -9,6 +9,15 @@ function ConvertToURL($Path) {
     $url = str_replace(__PUBLIC__, '//'.$_SERVER['HTTP_HOST'], $Path);
     return $url;
 }
+function LoadFile($Path, $Folder, $File) {
+    $Path = $Path.'/'.$Folder.'/'.$File;
+    $LoadFile = rtrim(ReplaceSlashes($Path), '/');
+    if(file_exists($LoadFile)) {
+        require_once $LoadFile;
+    } else {
+        echo $File. ' Not Found';
+    }
+}
 function LoadCSS($path, $folder, $file) {
     $Path = $path.'/'.$folder.''.$file;
     echo "<link href='".ConvertToURL($Path)."' rel='stylesheet'>".PHP_EOL;
@@ -37,3 +46,4 @@ function LoadFontAwesome() {
         echo "<link href='".ConvertToURL($FAFile)."' rel='stylesheet'>".PHP_EOL;
     }
 }
+

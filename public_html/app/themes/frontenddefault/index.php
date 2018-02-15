@@ -26,14 +26,17 @@ DEFINE('__18DefaultP__', ReplaceSlashes(DEFAULT_18_P));
   </head>
 
   <body>
-
+<?php echo LoadFile(__18DefaultP__, "Parts", "NavbarTop.php"); ?>
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light static-top">
       <div class="container">
         <a class="navbar-brand" href="//<?php echo $_SERVER['HTTP_HOST']; ?>"><?php echo Config("SiteDetails", "SiteName"); ?></a>
-       <div class="navbar-right"><?php \module\LoadActiveModules("top-right-nav"); ?></div> <!--Navbar Right Module--><?php \module\LoadActiveModules("top-right-nav"); ?>
+          <div class="nav"><li>test</li>hello</div>
+          <a href="testling" class="navbar-brand">I'm a test link</a>
+       <div class="navbar-right"></div> <!--Navbar Right Module--><?php \module\LoadActiveModules("top-right-nav"); ?>
       </div>
     </nav>
+    <?php \module\LoadActiveModules("top-right-nav"); ?>
 
 
     <!-- Icons Grid -->
