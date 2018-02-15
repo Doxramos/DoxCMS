@@ -1,0 +1,9 @@
+{
+  "Module": {
+    "Name": "Default Login Module",
+    "Author": "Doxramos",
+    "Homepage": "Invontrol",
+    "Active": true,
+    "Position": "top-right-nav"
+  }
+}

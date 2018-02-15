@@ -1,0 +1,34 @@
+ul.font-awesome { padding-left:20px; list-style:none; }
+li.font-awesome { margin-bottom:10px; font-weight: 900; }
+li.bitbucket:before {
+    font-family: 'Font Awesome 5 Free', "Font Awesome 5 Brands";
+    content: '\f171';
+    margin:0 5px 0 -15px;
+}
+li.block:before {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f1b2';
+    margin:0 5px 0 -15px;
+}
+li.circle-notch:before {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f1ce';
+    margin:0 5px 0 -15px;
+}
+li.dollar:before {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f155';
+    margin:0 5px 0 -15px;
+}
+li.fire:before {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f06d';
+    margin:0 5px 0 -15px;
+}
+li.github:before {
+    font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
+    content: '\f09b';
+    margin:0 5px 0 -15px;
+}
+
+
