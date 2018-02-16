@@ -37,9 +37,9 @@ SQL;
                 $Link = str_replace(" ", "_", '//' . $_SERVER['HTTP_HOST'] . '/index.php?page=' . $row['title']);
             }
             if ($CurrentPage == $row['title']) {
-                $Return = $PreActive . '<a class="' . $AClass . '" href="' . $Link . '"><i class="'.$row['fa_icon'].'"></i> ' . $row['title'] . '</a>' . $PostHTML;
+                $Return = $PreActive . '<a class="' . $AClass . ' faa-parent animated-hover" href="' . $Link . '"><i class="'.$row['fa_icon'].'"></i> ' . $row['title'] . '</a>' . $PostHTML;
             } else {
-                $Return =  $PreHTML . '<a class="' . $AClass . '" href="' . $Link . '"><i class="'.$row['fa_icon'].'"></i> ' . $row['title'] . '</a>' . $PostHTML;
+                $Return =  $PreHTML . '<a class="' . $AClass . ' faa-parent animated-hover" href="' . $Link . '"><i class="'.$row['fa_icon'].'"></i> ' . $row['title'] . '</a>' . $PostHTML;
             }
             $Menu .= $Return;
         }
@@ -56,7 +56,10 @@ SQL;
             ":PageID"   => $PageID
         ));
         if($resource->rowCount() == 0 ) {
-            return "Load 404 Template";
+            LoadFontAwesome();
+            $string = "<p class='text-center'><i class='fas fa-exclamation-triangle faa-flash animated fa-10x faa-slow'></i></p><p class='text-center'><h2>Page '".PageIdent()."' Not Found</h2></p>";
+            $string .= "<p>Try these links for more!</p>";
+            return $string;
         }
         else {
             $result = $resource->fetch(PDO::FETCH_ASSOC);
@@ -88,13 +91,13 @@ function CreateMenu($PreHTML, $PreActive, $PostHTML, $AClass, $MenuLocation) {
     $Page = new page();
     echo $Page->CreateMenu($PreHTML, $PreActive, $PostHTML, $AClass, $MenuLocation);
 }
-function HomeMenu($PreHTML, $PreActive, $PostHTML, $AClass) {
+function HomeMenu($PreHTML, $PreActive, $PostHTML, $AClass, $FAAnimation) {
     $CurrentPage = PageIdent();
     $Link = str_replace(" ", "-", '//' . $_SERVER['HTTP_HOST']);
         if ($CurrentPage == 'Home') {
-            $Menu = $PreActive . '<a class="' . $AClass . '" href="' . $Link . '"><i class="fas fa-home"></i> Home</a>' . $PostHTML;
+            $Menu = $PreActive . '<a class="' . $AClass . ' faa-parent animated-hover" href="' . $Link . '"><i class="fas fa-home faa-'.$FAAnimation.'"></i> Home</a>' . $PostHTML;
         } else {
-            $Menu =  $PreHTML . '<a class="' . $AClass . '" href="' . $Link . '"><i class="fas fa-home"></i> Home</a>' . $PostHTML;
+            $Menu =  $PreHTML . '<a class="' . $AClass . ' faa-parent animated-hover" href="' . $Link . '"><i class="fas fa-home faa-'.$FAAnimation.'"></i> Home</a>' . $PostHTML;
         }
         echo $Menu;
 }

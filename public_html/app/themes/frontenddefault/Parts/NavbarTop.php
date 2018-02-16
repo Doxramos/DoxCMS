@@ -16,7 +16,7 @@
         <ul class="navbar-nav mr-auto">
 
             <?php
-            \page\HomeMenu('<li class="nav-item">', '<li class="nav-item active">', "</li>", "nav-link");
+            \page\HomeMenu('<li class="nav-item ">', '<li class="nav-item active">', "</li>", "nav-link", "horizontal");
             \page\CreateMenu('<li class="nav-item">', '<li class="nav-item active">', "</li>", "nav-link", "TopMenu"); ?>
 
         </ul>

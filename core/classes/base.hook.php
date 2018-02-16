@@ -22,7 +22,7 @@ function PageIdent() {
     if(!isset($_GET['page'])) {
         return "Home";
     } else {
-        return str_replace("-", ' ', $_GET['page']);
+        return str_replace("_", ' ', $_GET['page']);
     }
 }
 function LoadCSS($path, $folder, $file) {
