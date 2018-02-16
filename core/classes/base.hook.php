@@ -18,6 +18,13 @@ function LoadFile($Path, $Folder, $File) {
         echo $File. ' Not Found';
     }
 }
+function PageIdent() {
+    if(!isset($_GET['page'])) {
+        return "Home";
+    } else {
+        return str_replace("-", ' ', $_GET['page']);
+    }
+}
 function LoadCSS($path, $folder, $file) {
     $Path = $path.'/'.$folder.''.$file;
     echo "<link href='".ConvertToURL($Path)."' rel='stylesheet'>".PHP_EOL;

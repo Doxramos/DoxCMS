@@ -40,15 +40,18 @@ Sign in or Create an Account<a href="javascript:void();" data-toggle="modal" cla
                     <div class="text-center"><i class="fas fa-user-secret big-icon"></i></div>
                     <br />
                     <form id="login_form_default">
-                        <input type="hidden" name="process" id="process" value="login_default">
-                    <input type="text" class="form-control fa_placeholder" id="inlineFormInputGroup" name="login_username"
-                           placeholder="&#xf2bd; Username"
+                    <input type="hidden" name="process" id="process" value="login_default">
+                    <div class="text-center">
+                        <input type="text" class="form-control fa_placeholder" id="inlineFormInputGroup" name="login_username"
+                           placeholder="&#xf2bd; Username">
+                        <br />
                     <br/>
                     <input type="password" class="form-control fa_placeholder" id="inlineFormInputGroup" name="login_password"
                            placeholder="&#xf023; Password">
                     <br/>
                     <a href="javascript:void();" data-toggle="modal" data-dismiss="modal" data-target="#forgotModal">Forgot
                         Username or Password</a>
+                    </div>
 
                 </div>
                 <div class="modal-footer">
@@ -62,7 +65,6 @@ Sign in or Create an Account<a href="javascript:void();" data-toggle="modal" cla
                 </div>
             </div>
         </div>
-    </div>
 
 
     <!--Register Modal-->

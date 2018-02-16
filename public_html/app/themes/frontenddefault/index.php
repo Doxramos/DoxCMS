@@ -27,66 +27,16 @@ DEFINE('__18DefaultP__', ReplaceSlashes(DEFAULT_18_P));
 
   <body>
 <?php echo LoadFile(__18DefaultP__, "Parts", "NavbarTop.php"); ?>
-    <!-- Navigation -->
-    <nav class="navbar navbar-light bg-light static-top">
-      <div class="container">
-        <a class="navbar-brand" href="//<?php echo $_SERVER['HTTP_HOST']; ?>"><?php echo Config("SiteDetails", "SiteName"); ?></a>
-          <div class="nav"><li>test</li>hello</div>
-          <a href="testling" class="navbar-brand">I'm a test link</a>
-       <div class="navbar-right"></div> <!--Navbar Right Module--><?php \module\LoadActiveModules("top-right-nav"); ?>
-      </div>
-    </nav>
+
     <?php \module\LoadActiveModules("top-right-nav"); ?>
 
 
     <!-- Icons Grid -->
     <section class="features-icons bg-light text-center">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="fas fa-dollar-sign m-auto text-primary"></i>
-              </div>
-              <h3>Fully Responsive</h3>
-              <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
-            </div>
-          </div>
-            <style>
-
-            </style>
-          <div class="col-lg-4">
-              <div class="card">
-                  <div class="card-header">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                  <i class="fas fa-dollar-sign m-auto text-primary"></i>
-              </div></div>
-              <h3>Plans and Pricing</h3>
-              <p class="lead mb-0">
-                  Different Pricing for Different Budgets.
-                      <ul class="font-awesome">Choose What works for you.
-                  <li class="font-awesome block">Free</li>
-                          <li class="font-awesome circle-notch">$5.00 One Time</li>
-                          <li class="font-awesome fire">$10.00 Monthly</li>
-                          <li class="font-awesome github">Can't Pay Anything? Contribute to the code?</li>
-                      </ul>
-                      <button type="button" class="btn btn-info">Select a Plan</button>
-                </p>
-            </div>
-              </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="icon-check m-auto text-primary"></i>
-              </div>
-              <h3>Easy to Use</h3>
-              <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
-            </div>
-          </div>
-
-        </div>
+<div class="col-lg-8">
+    <?php echo \page\GetPageDetail(PageIdent(), "html"); ?>
+</div>
       </div>
     </section>
 

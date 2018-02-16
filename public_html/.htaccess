@@ -5,6 +5,6 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-RewriteRule ^(\w+)/?$ index.php?view=$1 [L,QSA]
-RewriteRule ^(\w+)/(\w+)/?$ index.php?view=$1&page=$2
-RewriteRule ^(\w+)/(\w+)/(\w+)/?$ index.php?view=$1&page=$2&limit=$3 [L,QSA]
+RewriteRule ^(\w+)/?$ index.php?page=$1 [L,QSA]
+RewriteRule ^(\w+)/(\w+)/?$ index.php?page=$1&page=$2
+RewriteRule ^(\w+)/(\w+)/(\w+)/?$ index.php?page=$1&page=$2&limit=$3 [L,QSA]

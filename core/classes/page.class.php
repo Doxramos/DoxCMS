@@ -16,7 +16,37 @@ class page
         $this->tPrefix = Config('Database', "Table_Prefix");
 
     }
-    public function GetPageDetail($PageID, $Detail) {
+    public function CreateMenu($PreHTML, $PreActive, $PostHTML, $AClass, $MenuLocation) {
+        $query = <<<SQL
+        SELECT * FROM {$this->tPrefix}pages
+        WHERE menuLocation = :MenuLocation
+        AND active = :Yes
+        ORDER BY pageOrder ASC
+SQL;
+        $resource = $this->connection->db->prepare( $query );
+        $resource->execute( array (
+            ":MenuLocation" => $MenuLocation,
+            ":Yes"  => 1
+        ));
+        $CurrentPage = str_replace("_", " ", PageIdent());
+        $Menu = '';
+        foreach($resource as $row) {
+            if (Config("SiteDetails", "FriendlyURL") == true) {
+                $Link = str_replace(" " , "_", '//' . $_SERVER['HTTP_HOST'] . '/' . $row['title']);
+            } else {
+                $Link = str_replace(" ", "_", '//' . $_SERVER['HTTP_HOST'] . '/index.php?page=' . $row['title']);
+            }
+            if ($CurrentPage == $row['title']) {
+                $Return = $PreActive . '<a class="' . $AClass . '" href="' . $Link . '"><i class="'.$row['fa_icon'].'"></i> ' . $row['title'] . '</a>' . $PostHTML;
+            } else {
+                $Return =  $PreHTML . '<a class="' . $AClass . '" href="' . $Link . '"><i class="'.$row['fa_icon'].'"></i> ' . $row['title'] . '</a>' . $PostHTML;
+            }
+            $Menu .= $Return;
+        }
+        return $Menu;
+    }
+    public function GetPageDetail($PageTitle, $Detail) {
+        $PageID = $this->ConvertFriendlyID(str_replace("_", " ", $PageTitle));
         $query = <<<SQL
         SELECT * FROM {$this->tPrefix}pages
         WHERE id = :PageID
@@ -32,7 +62,19 @@ SQL;
             $result = $resource->fetch(PDO::FETCH_ASSOC);
             return $result[$Detail];
         }
-        return $resource->rowCount();
+
+    }
+    public function ConvertFriendlyID($ID) {
+        $query = <<<SQL
+        SELECT id FROM {$this->tPrefix}pages
+        WHERE title = :ID
+SQL;
+        $resource = $this->connection->db->prepare( $query );
+        $resource->execute( array (
+            ":ID"   => $ID,
+        ));
+        $result = $resource->fetch(PDO::FETCH_ASSOC);
+        return $result['id'];
 
     }
 
@@ -42,3 +84,18 @@ function GetPageDetail($PageID, $Detail) {
     $Page = new page();
     return $Page->GetPageDetail($PageID, $Detail);
 }
+function CreateMenu($PreHTML, $PreActive, $PostHTML, $AClass, $MenuLocation) {
+    $Page = new page();
+    echo $Page->CreateMenu($PreHTML, $PreActive, $PostHTML, $AClass, $MenuLocation);
+}
+function HomeMenu($PreHTML, $PreActive, $PostHTML, $AClass) {
+    $CurrentPage = PageIdent();
+    $Link = str_replace(" ", "-", '//' . $_SERVER['HTTP_HOST']);
+        if ($CurrentPage == 'Home') {
+            $Menu = $PreActive . '<a class="' . $AClass . '" href="' . $Link . '"><i class="fas fa-home"></i> Home</a>' . $PostHTML;
+        } else {
+            $Menu =  $PreHTML . '<a class="' . $AClass . '" href="' . $Link . '"><i class="fas fa-home"></i> Home</a>' . $PostHTML;
+        }
+        echo $Menu;
+}
+
