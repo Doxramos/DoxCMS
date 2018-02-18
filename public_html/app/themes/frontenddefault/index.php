@@ -37,6 +37,7 @@ DEFINE('__18DefaultP__', ReplaceSlashes(DEFAULT_18_P));
           <div class="row">
 <div class="col-lg-9">
     <?php echo \page\GetPageDetail(PageIdent(), "html"); ?>
+    <?php echo ApplicationData("Release", "Name"); ?>
 </div>
           <div class="col-lg-3 text-center"><?php \module\LoadActiveModules("sidebar-right"); ?></div>
           </div>

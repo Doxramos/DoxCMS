@@ -5,6 +5,13 @@
  * Copyright Doxramos Web Development
  *
  */
+function ApplicationData($Field, $Subfield) {
+    $url = 'https://raw.githubusercontent.com/Doxramos/DoxCMS/master/jsonFiles/application.json';
+    $jsonData = file_get_contents($url);
+    $json = json_decode($jsonData);
+    return $json->$Field->$Subfield;
+}
+
 function ConvertToURL($Path) {
     $url = str_replace(__PUBLIC__, '//'.$_SERVER['HTTP_HOST'], $Path);
     return $url;
@@ -52,5 +59,8 @@ function LoadFontAwesome() {
     foreach(glob(__BIN__.'/font-awesome/css/fontawesome-all.css') as $FAFile) {
         echo "<link href='".ConvertToURL($FAFile)."' rel='stylesheet'>".PHP_EOL;
     }
+}
+function UserID() {
+    return $_SESSION['userID'];
 }
 

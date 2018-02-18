@@ -5,4 +5,7 @@
  * Copyright Doxramos Web Development
  *
  */
-print_r($_POST);
+require_once "../../../../loader.php";
+switch($_POST['process']) {
+    case "login_default": echo \user\LoginUser($_POST['login_username'], $_POST['login_password']); break;
+}
