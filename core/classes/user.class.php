@@ -110,14 +110,14 @@ SQL;
         ));
         $result = $resource->fetch(PDO::FETCH_ASSOC);
         if($result['gauthCode'] == 0) {
-            $this->ClearBrute($Username);
-            return $this->Login($result['userID']);
+            return $this->Login($result['userID'], $Username);
         } else {
             return "Start Auth Sequence";
         }
     }
-    public function Login($UserID) {
+    public function Login($UserID, $Username) {
         session_start();
+        $this->ClearBrute($Username);
         return $_SESSION['userID'] = $UserID;
     }
     public function InsertBrute($Username) {
