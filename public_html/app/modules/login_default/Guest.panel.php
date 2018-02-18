@@ -44,6 +44,7 @@ Sign in or Create an Account<a href="javascript:void();" data-toggle="modal" cla
                         <input type="password" class="form-control fa_placeholder" id="inlineFormInputGroup" name="login_password"
                                placeholder="&#xf023; Password">
                         <br/>
+                        <div class="dloginstatusmessage"></div>
                         <a href="javascript:void();" data-toggle="modal" data-dismiss="modal" data-target="#forgotModal">Forgot
                             Username or Password</a>
                     </div>

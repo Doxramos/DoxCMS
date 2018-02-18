@@ -61,7 +61,7 @@ SQL;
         $Elapsed = Config("Security", "LockOutTime");
         $UnlockTime = $lockTime + 60*$Elapsed;
         if($UnlockTime >= time()) {
-            return "Account locked until ". date('m/d/Y', $UnlockTime) . " at " .date('h:i:s', $UnlockTime). " UTC";
+            return "This account has been locked until ". date('m/d/Y', $UnlockTime) . " at " .date('h:i:s', $UnlockTime). " UTC";
         }
         else {
             return $this->CheckIfEmailUsed($Username, $Password);
@@ -132,7 +132,7 @@ SQL;
             return $this->LockAccount($Username);
         }
         else {
-            return "You have used " .$this->GetUserDetail($Username, "brute_prevent"). " of ". Config('Security', 'LoginAttempts'). " attempts";
+            return "You have used " .$this->GetUserDetail($Username, "brute_prevent"). " of ". Config('Security', 'LoginAttempts'). " attempts. <br />After " . Config('Security', 'LoginAttempts'). " failed attempts you will be locked out for " .Config("Security", "LockOutTime"). " minutes";
         }
     }
     public function LockAccount($Username) {

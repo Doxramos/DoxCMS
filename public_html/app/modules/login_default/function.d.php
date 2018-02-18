@@ -8,4 +8,5 @@
 require_once "../../../../loader.php";
 switch($_POST['process']) {
     case "login_default": echo \user\LoginUser($_POST['login_username'], $_POST['login_password']); break;
+    case "logout": session_start(); session_destroy(); echo 1; break;
 }

@@ -22,14 +22,22 @@ $user = new \user\user();
             <div class="modal-body">
 
                 <div class="text-center"><img src="<?php echo $user->generateGravatar($user->UserDetail(UserID(), "email")); ?>"></div>
-
+                <form id="default_logout">
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
 
             </div>
             <div class="modal-footer">
+                <div class="col-lg-2">
+
+                </div>
+                <div class="col-lg-4"></div>
+                <div class="col-lg-6">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
 
                 <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
             </div>
         </div>
     </div>
